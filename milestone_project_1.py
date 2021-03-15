@@ -2,7 +2,6 @@ MENU_PROMPT = "\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a
 movies = []
 
 
-# You may want to create a function for this code
 def add_movie():
     title = input("Enter the movie title: ")
     director = input("Enter the movie director: ")
@@ -14,34 +13,43 @@ def add_movie():
         'year': year
     })
 
-#  listing movies
-def list_movies():
+
+def show_movies():
     for movie in movies:
-        print(movie['title'])
+        print_movie(movie)
 
-#  finding movies
-def find_movies(list_movies):
-    search_title = input('Enter movie title you are looking for: ')
+
+def print_movie(movie):
+    print(f"Title: {movie['title']}")
+    print(f"Director: {movie['director']}")
+    print(f"Release year: {movie['year']}")
+
+
+def find_movie():
+    search_title = input("Enter movie title you're looking for: ")
 
     for movie in movies:
-        if search_title.lower() == movie['title'].lower():
-            print(movie['title'])
+        if movie["title"] == search_title:
+            print_movie(movie)
 
-# And another function here for the user menu
-def user_menu(): 
+
+user_options = {
+    "a": add_movie,
+    "l": show_movies,
+    "f": find_movie
+}
+
+
+def menu():
     selection = input(MENU_PROMPT)
     while selection != 'q':
-        if selection == "a":
-            add_movie()
-        elif selection == "l":
-            list_movies()
-        elif selection == "f":
-            find_movies()
+        if selection in user_options:
+            selected_function = user_options[selection]
+            selected_function()
         else:
             print('Unknown command. Please try again.')
 
         selection = input(MENU_PROMPT)
 
 
-# Remember to run the user menu function at the end!
-user_menu()
+menu()
