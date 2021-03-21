@@ -1,4 +1,4 @@
-from milestone_project_2.utils import database
+from utils import database
 
 USER_CHOICE = """
 Enter:
