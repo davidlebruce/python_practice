@@ -11,7 +11,7 @@ name,author,read\n
 
 
 def create_book_table():
-    connection = sqlite3.connect('data.db')
+    connection = sqlite3.connect('milestone_project_2/data.db')
     cursor = connection.cursor()
 
     cursor.execute('CREATE TABLE IF NOT EXISTS books(name text primary key, author text, read integer)')
