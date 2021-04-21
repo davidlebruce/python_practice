@@ -21,7 +21,7 @@ class BookParser:
         self.parent = parent
     
     def __repr__(self):
-        return '<Book {self.name}, £{self.price} ({self.rating} stars)>'
+        return f'<Book {self.name}, £{self.price} ({self.rating} stars)>'
 
     @property
     def name(self):
@@ -51,5 +51,5 @@ class BookParser:
         star_rating_tag = self.parent.select_one(locator)
         classes = star_rating_tag.attrs['class']
         rating_classes = [r for r in classes if r != 'star-rating']
-        rating_number = BookParser.RATINGS.get(rating_classes[0], default=9)  # 9 if not found
+        rating_number = BookParser.RATINGS.get(rating_classes[0]) 
         return rating_number
