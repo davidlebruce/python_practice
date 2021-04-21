@@ -19,6 +19,9 @@ class BookParser:
 
     def __init__(self, parent):
         self.parent = parent
+    
+    def __repr__(self):
+        return '<Book {self.name}, £{self.price} ({self.rating} stars)>'
 
     @property
     def name(self):
