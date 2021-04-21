@@ -5,7 +5,7 @@ from pages.all_books_page import AllBooksPage
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
                     datefmt='%d-%m-%Y %H:%M:%S',
-                    level=logging.DEBUG,
+                    level=logging.INFO,
                     filename='milestone_project_4/logs.txt')
 
 logger = logging.getLogger('scraping')
